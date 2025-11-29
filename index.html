@@ -8,12 +8,11 @@
   
   <!-- iOS / PWA Settings -->
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <!-- アイコンに合わせてステータスバーを少し透過させる設定に変更 -->
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="カレンダー">
   
-  <!-- ここを変更：シンプルでシックな埋め込みアイコン -->
-  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0iIzFGMjkzNyIvPjxyZWN0IHg9IjExNiIgeT0iMTQ2IiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjI2MCIgcng9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMjQiLz48bGluZSB4MT0iMTE2IiB5MT0iMjIwIiB4Mj0iMzk2IiB5Mj0iMjIwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMjQiLz48Y2lyY2xlIGN4PSIyNTYiIGN5PSIzMDAiIHI9IjIwIiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+">
+  <!-- ここを修正：iPhoneが確実に認識するPNG画像（シンプル・黒）に変更 -->
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2693/2693507.png">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -21,7 +20,7 @@
   <!-- Babel for JSX compilation -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- Import Map (using esm.sh for CodePen compatibility) -->
+  <!-- Import Map -->
   <script type="importmap">
     {
       "imports": {
