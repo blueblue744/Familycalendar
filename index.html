@@ -493,7 +493,15 @@
           const evDate = new Date(ev.start);
           const inDateRange = evDate >= s && evDate <= e;
           const matchUser = aggUserId === 'all' ? true : ev.userIds.includes(aggUserId);
-          const matchKeyword = aggKeyword ? ev.title === aggKeyword : true;
+          
+          let matchKeyword = true;
+          if (aggKeyword) {
+            const keywords = aggKeyword.split('&').map(k => k.trim()).filter(k => k);
+            if (keywords.length > 0) {
+                matchKeyword = keywords.some(k => ev.title === k);
+            }
+          }
+          
           return inDateRange && matchUser && matchKeyword;
         });
 
@@ -982,9 +990,9 @@
               </select>
             </div>
             <div>
-              <label className="block text-xs font-bold text-gray-600 mb-1">キーワード (完全一致)</label>
+              <label className="block text-xs font-bold text-gray-600 mb-1">キーワード (完全一致、&で複数)</label>
               <div className="relative">
-                <input type="text" value={aggKeyword} onChange={e => setAggKeyword(e.target.value)} placeholder="例: 買い物 (入力がない場合は全件)" className="w-full p-2.5 pl-9 border border-gray-300 rounded-lg bg-gray-50 text-base" />
+                <input type="text" value={aggKeyword} onChange={e => setAggKeyword(e.target.value)} placeholder="例: 買い物 & 病院 (入力がない場合は全件)" className="w-full p-2.5 pl-9 border border-gray-300 rounded-lg bg-gray-50 text-base" />
                 <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
               </div>
             </div>
